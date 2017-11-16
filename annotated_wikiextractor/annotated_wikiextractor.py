@@ -106,7 +106,7 @@ class AnnotatedWikiExtractor (wikiextractor.WikiExtractor):
         deltaStringLength = 0
         
         #As a first step, find all links in the article, save their positions into the annotations object
-        ms = re.finditer('<a href="([^"]+)">([^>]+)</a>', wiki_document.text)
+        ms = re.finditer(ur'<a href="([^"]+)">([^>]+)</a>', wiki_document.text, re.UNICODE)
         
         for m in ms:              
             if urllib.quote("#") not in m.group(1) or keep_anchors:
